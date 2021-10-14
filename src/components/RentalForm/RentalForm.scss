@@ -3,14 +3,14 @@
 .form-wrapper {
   width: 460px;
   margin: 0 auto;
-  padding-top: 25px;
+  padding-top: 15px;
   padding-bottom: 25px;
   background-color: $blue-bg-form;
   border-radius: 5px;
 
   @include for-size(tablet) {
     width: 750px;
-    padding-top: 40px;
+    padding-top: 30px;
     padding-bottom: 40px;
   }
   @include for-size(desktop) {
@@ -77,7 +77,7 @@
 }
 
 .select-type {
-  width: 190px;
+  width: 196px;
 
   @include for-size(tablet) {
     width: 120px;

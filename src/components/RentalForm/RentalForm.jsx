@@ -75,6 +75,7 @@ export default function RentalForm({ onSubmit }) {
               id="bike-price-id"
               type="number"
               step="10"
+              min="0"
               value={rentPrice}
               onChange={handleInputPrice}
             />

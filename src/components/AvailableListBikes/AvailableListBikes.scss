@@ -10,7 +10,10 @@
   margin: 0 auto;
 
   @include for-size(tablet) {
-    width: 600px;
+    width: 720px;
+  }
+  @include for-size(desktop) {
+    width: 800px;
   }
 }
 
@@ -38,11 +41,17 @@
 .available-bike-data {
   font-size: 16px;
   font-weight: 500;
-  min-width: 190px;
+  width: 180px;
+  word-wrap: wrap;
+  word-wrap: break-word;
 
   @include for-size(tablet) {
     font-size: 20px;
-    min-width: 220px;
+    width: 10px;
+  }
+
+  @include for-size(tablet) {
+    width: 380px;
   }
 }
 
