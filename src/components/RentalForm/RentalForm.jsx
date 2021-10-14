@@ -1,61 +1,92 @@
 import classNames from "classnames";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./RentalForm.scss";
-
+import "../Button/Button.scss";
 import Button from "../Button";
+import AvailableListBikes from "../AvailableListBikes";
+import { getBikes, addBike, deleteBike } from "../../api/apiBikes";
 
-export default function RentalForm() {
-  const [name, setName] = useState("");
-  const [price, setPrice] = useState(0);
-  const [rentData, setRentData] = useState([]);
+export default function RentalForm({ onSubmit }) {
+  const [bikeName, setbikeName] = useState("");
+  const [bikeType, setBikeType] = useState("Road");
+  const [rentPrice, setRentPrice] = useState(0);
+  // const [bikeList, setBikeList] = useState([]);
 
-  const handleInputName = (e) => setName(e.target.value);
-  const handleInputPrice = (e) => setPrice(e.target.value);
+  // useEffect(() => {
+  //   getBikes().then(({ payload }) => setBikeList(payload));
+  // }, []);
 
-  const handleSubmitRent = (e) => {
+  const handleInputName = (e) => setbikeName(e.target.value);
+  const handleSelectType = (e) => setBikeType(e.target.value);
+  const handleInputPrice = (e) => setRentPrice(e.target.value);
+
+  const handleSubmitBike = async (e) => {
     e.preventDefault();
+
     const bike = {
-      name,
-      price,
+      bikeName,
+      bikeType,
+      rentPrice,
     };
-    setRentData((prev) => [...prev, bike]);
+    await onSubmit(bike);
+    // await addBike(bike).then((data) => setBikeList((prev) => [...prev, data]));
+
+    // await addBike(bike);
+    // await getBikes().then(({ payload }) => setBikeList(payload));
+    setbikeName("");
+    setRentPrice(0);
   };
 
   return (
     <>
-      <form className="form-rental" onSubmit={handleSubmitRent}>
-        <label htmlFor="bike-name-id" className="form-label">
-          Bike name
-          <input
-            id="bike-name-id"
-            type="text"
-            value={name}
-            onChange={handleInputName}
-          />
-        </label>
-        <label className="form-label" htmlFor="bike-type-id">
-          Bike type
-          <select id="bike-type-id" form name="bike-type">
-            <option value="Road">Road</option>
-            <option value="Mount">Mount</option>
-            <option value="BMX">BMX</option>
-          </select>
-        </label>
-        <label className="form-label" htmlFor="bike=price-id">
-          Rent Price
-          <input
-            id="bike-price-id"
-            type="number"
-            step="10"
-            value={price}
-            onChange={handleInputPrice}
-          />
-        </label>
-        <Button type="submit" className="button-submit">
-          Submit rent
-        </Button>
-      </form>
+      <h2 className="form-rental-title">Create new rent</h2>
+      <div className="form-wrapper">
+        <form className="form-rental" onSubmit={handleSubmitBike}>
+          <label className="form-label-name">
+            Bike name
+            <input
+              id="bike-name-id"
+              type="text"
+              value={bikeName}
+              onChange={handleInputName}
+            />
+          </label>
+          <label className="form-label-type">
+            Bike type
+            <select
+              className="select-type"
+              id="bike-type-id"
+              name="bike-type"
+              onChange={handleSelectType}
+            >
+              <option value="Road">Road</option>
+              <option value="Mountain">Mountain</option>
+              <option value="BMX">BMX</option>
+              <option value="Touring">Touring</option>
+              <option value="Folding">Folding</option>
+              <option value="Cruiser">Cruiser</option>
+            </select>
+          </label>
+          <label className="form-label-price">
+            Rent Price
+            <input
+              className="input-price"
+              id="bike-price-id"
+              type="number"
+              step="10"
+              value={rentPrice}
+              onChange={handleInputPrice}
+            />
+          </label>
+          <Button
+            type="submit"
+            className={classNames("button", "button-submit")}
+          >
+            Submit rent
+          </Button>
+        </form>
+      </div>
     </>
   );
 }

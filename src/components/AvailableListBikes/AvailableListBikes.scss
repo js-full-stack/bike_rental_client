@@ -1,0 +1,73 @@
+@import "../../scss/shared.scss";
+
+.available-section-title {
+  text-align: center;
+  margin: 24px 0;
+}
+
+.available-list {
+  width: 480px;
+  margin: 0 auto;
+
+  @include for-size(tablet) {
+    width: 600px;
+  }
+}
+
+.available-list-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 12px 0;
+  background-color: $white;
+
+  @include for-size(tablet) {
+    justify-content: space-evenly;
+  }
+}
+
+.available-list-item:not(:last-child) {
+  margin-bottom: 25px;
+}
+
+.available-buttons-wrapper {
+  display: flex;
+}
+
+.available-bike-data {
+  font-size: 16px;
+  font-weight: 500;
+  min-width: 190px;
+
+  @include for-size(tablet) {
+    font-size: 20px;
+    min-width: 220px;
+  }
+}
+
+.button-delete,
+.button-rent {
+  transition: background-color $transition;
+}
+
+.button-delete {
+  background-color: $red-bg-btn;
+  margin-left: 20px;
+
+  @include for-size(tablet) {
+    margin-left: 30px;
+  }
+}
+
+.button-delete:hover {
+  background-color: $red-bg-btn--active;
+}
+
+.button-rent {
+  background-color: $blue-bg-btn;
+}
+
+.button-rent:hover {
+  background-color: $blue-bg-btn--active;
+}
