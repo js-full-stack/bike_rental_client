@@ -1,0 +1,13 @@
+@import "../../scss/shared.scss";
+
+.banner {
+  height: 500px;
+
+  background-image: url("../../img/banner-4.jpg");
+  background-color: $white;
+  background-repeat: no-repeat;
+  background-position: center;
+  object-fit: inherit;
+  background-size: contain;
+  width: inherit;
+}

@@ -1,10 +1,11 @@
-$white: #ffffff;
-
-$gray-bg-body: #dadada;
-$blue-bg-form: #a9a5b9;
-$green-bg-btn: #105040;
-$green-bg-btn--active: #2a8653;
-$red-bg-btn: #862424;
-$red-bg-btn--active: #db3434;
-$blue-bg-btn: #372c6c;
-$blue-bg-btn--active: #6149db;
+$white: #ffffff; //* just white
+$gray-border-line: #dadada; //* color for header border line
+$gray-bg: #ebeaff; //* bakkground for body
+$gradient-banner: rgba(218, 218, 218, 0.2); //* background-banner (second layer)
+$green-bg-btn: #105040; //* background button for submit form
+$green-bg-btn--active: #2a8653; //* background button for submit form on hover
+$gray-title-color: #464242; //*title colors
+$red-bg-btn: #862424; //* background delete button
+$red-bg-btn--active: #db3434; //* background delete button on hover
+$blue-bg-btn: #372c6c; //* background rent button
+$blue-bg-btn--active: #6149db; //* background rent button on hover

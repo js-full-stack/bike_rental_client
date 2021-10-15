@@ -1,0 +1,26 @@
+@import "../../scss/shared.scss";
+.header {
+  position: relative;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid $gray-border-line;
+}
+
+.header-title {
+  text-align: center;
+  font-size: 46px;
+  text-transform: uppercase;
+  color: $gray-title-color;
+}
+
+.icon-logo {
+  position: absolute;
+  top: 6px;
+  left: 10px;
+  height: 45px;
+  width: 45px;
+
+  @include for-size(desktop) {
+    margin-right: 50px;
+  }
+}

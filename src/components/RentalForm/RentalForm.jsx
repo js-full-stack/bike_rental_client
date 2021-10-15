@@ -1,21 +1,17 @@
 import classNames from "classnames";
+import { useState } from "react";
+import { useMedia } from "react-use";
 
-import { useState, useEffect } from "react";
 import "./RentalForm.scss";
 import "../Button/Button.scss";
 import Button from "../Button";
-import AvailableListBikes from "../AvailableListBikes";
-import { getBikes, addBike, deleteBike } from "../../api/apiBikes";
-
+import Logo from "../../img/logo.png";
 export default function RentalForm({ onSubmit }) {
   const [bikeName, setbikeName] = useState("");
   const [bikeType, setBikeType] = useState("Road");
   const [rentPrice, setRentPrice] = useState(0);
-  // const [bikeList, setBikeList] = useState([]);
 
-  // useEffect(() => {
-  //   getBikes().then(({ payload }) => setBikeList(payload));
-  // }, []);
+  const tabletMode = useMedia("(min-width: 768px)");
 
   const handleInputName = (e) => setbikeName(e.target.value);
   const handleSelectType = (e) => setBikeType(e.target.value);
@@ -30,22 +26,21 @@ export default function RentalForm({ onSubmit }) {
       rentPrice,
     };
     await onSubmit(bike);
-    // await addBike(bike).then((data) => setBikeList((prev) => [...prev, data]));
 
-    // await addBike(bike);
-    // await getBikes().then(({ payload }) => setBikeList(payload));
     setbikeName("");
     setRentPrice(0);
   };
 
   return (
     <>
-      <h2 className="form-rental-title">Create new rent</h2>
       <div className="form-wrapper">
+        <h2 className="form-rental-title">Create new rent</h2>
+
         <form className="form-rental" onSubmit={handleSubmitBike}>
           <label className="form-label-name">
             Bike name
             <input
+              className="input-name"
               id="bike-name-id"
               type="text"
               value={bikeName}

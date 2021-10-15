@@ -1,10 +1,17 @@
 import { useState, useEffect } from "react";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
+//*API
+import { getBikes, addBike, deleteBike } from "./api/apiBikes";
+
+//* Components
 import Container from "./components/Container";
 import RentalForm from "./components/RentalForm";
-import { getBikes, addBike, deleteBike } from "./api/apiBikes";
+import Header from "./components/Header";
+import Banner from "./components/Banner";
+import RentalListBikes from "./components/RentalListBikes";
 import AvailableListBikes from "./components/AvailableListBikes";
-
 function App() {
   const [bikeList, setBikeList] = useState([]);
 
@@ -26,9 +33,14 @@ function App() {
   return (
     <div className="app-wrapper">
       <Container>
+        <Header />
         <RentalForm onSubmit={handleSubmit} />
-        <AvailableListBikes bikeList={bikeList} onRemove={handleRemoveBike} />
+        <Banner />
+        <RentalListBikes bikes={bikeList} />
+
+        <AvailableListBikes bikes={bikeList} onRemove={handleRemoveBike} />
       </Container>
+      <ToastContainer />
     </div>
   );
 }
