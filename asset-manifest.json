@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/bike_rental_client/static/css/main.b5e7a14f.chunk.css",
+    "main.js": "/bike_rental_client/static/js/main.a002f978.chunk.js",
+    "main.js.map": "/bike_rental_client/static/js/main.a002f978.chunk.js.map",
+    "runtime-main.js": "/bike_rental_client/static/js/runtime-main.e6fd4e7e.js",
+    "runtime-main.js.map": "/bike_rental_client/static/js/runtime-main.e6fd4e7e.js.map",
+    "static/css/2.2ab3243f.chunk.css": "/bike_rental_client/static/css/2.2ab3243f.chunk.css",
+    "static/js/2.11890448.chunk.js": "/bike_rental_client/static/js/2.11890448.chunk.js",
+    "static/js/2.11890448.chunk.js.map": "/bike_rental_client/static/js/2.11890448.chunk.js.map",
+    "index.html": "/bike_rental_client/index.html",
+    "static/css/2.2ab3243f.chunk.css.map": "/bike_rental_client/static/css/2.2ab3243f.chunk.css.map",
+    "static/css/main.b5e7a14f.chunk.css.map": "/bike_rental_client/static/css/main.b5e7a14f.chunk.css.map",
+    "static/js/2.11890448.chunk.js.LICENSE.txt": "/bike_rental_client/static/js/2.11890448.chunk.js.LICENSE.txt",
+    "static/media/Banner.scss": "/bike_rental_client/static/media/banner.bb22d0a0.jpg",
+    "static/media/logo.867e0c73.png": "/bike_rental_client/static/media/logo.867e0c73.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e6fd4e7e.js",
+    "static/css/2.2ab3243f.chunk.css",
+    "static/js/2.11890448.chunk.js",
+    "static/css/main.b5e7a14f.chunk.css",
+    "static/js/main.a002f978.chunk.js"
+  ]
+}
