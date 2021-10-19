@@ -1,3 +1,5 @@
+@import "../../scss/shared.scss";
+
 .modal-backdrop {
   position: fixed;
   top: 0;
@@ -10,9 +12,16 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  height: 350px;
-  width: 500px;
-  padding: 14px;
+  height: 400px;
+  width: 450px;
   transform: translate(-50%, -50%);
   background-color: #fff;
+  @include for-size(tablet) {
+    width: 520px;
+    height: 400px;
+  }
+  @include for-size(desktop) {
+    width: 520px;
+    height: 400px;
+  }
 }

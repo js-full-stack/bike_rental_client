@@ -11,10 +11,10 @@
 
 .available-list {
   width: 480px;
-  margin: 0 auto;
+  margin: 0 auto 60px;
 
   @include for-size(tablet) {
-    width: 720px;
+    width: 768px;
   }
   @include for-size(desktop) {
     width: 800px;
@@ -47,7 +47,6 @@
   font-size: 16px;
   font-weight: 500;
   width: 180px;
-  word-wrap: wrap;
   word-wrap: break-word;
 
   @include for-size(tablet) {
@@ -84,4 +83,38 @@
 
 .button-rent:hover {
   background-color: $blue-bg-btn--active;
+}
+
+.time-rent-block,
+.count-price-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  font-size: 30px;
+  font-weight: 500;
+  text-transform: uppercase;
+  margin-top: 40px;
+  margin-bottom: 35px;
+  padding-bottom: 8px;
+  // border-bottom: 0.5px solid $gray-border-line;
+}
+
+.count-price-block {
+  margin-top: 0;
+  margin-bottom: 50px;
+}
+
+.passed-time-capture,
+.total-price-capture {
+  margin-bottom: 8px;
+}
+
+.buttons-block {
+  display: flex;
+  justify-content: center;
+}
+
+.button-continue-rent {
+  margin-right: 30px;
 }

@@ -18,7 +18,7 @@
   margin: 0 auto;
 
   @include for-size(tablet) {
-    width: 720px;
+    width: 768px;
   }
   @include for-size(desktop) {
     width: 800px;
@@ -46,7 +46,6 @@
   font-size: 16px;
   font-weight: 500;
   width: 180px;
-  word-wrap: wrap;
   word-wrap: break-word;
 
   @include for-size(tablet) {
@@ -59,18 +58,54 @@
   }
 }
 
-.button-cancel-rent {
+.button-count-rent {
   background-color: $red-bg-btn;
   transition: background-color $transition;
+  margin-left: 30px;
 
   @include for-size(tablet) {
-    margin-left: 75px;
+    // margin-left: 75px;
   }
   @include for-size(desktop) {
-    margin-left: 105px;
+    // margin-left: 105px;
   }
 }
 
-.button-cancel-rent:hover {
+.buttons-block {
+  display: flex;
+}
+
+.button-stop-rent {
+  background-color: $red-bg-btn;
+}
+
+.button-count-rent:hover,
+.button-cancel-rent:hover,
+.button-stop-rent:hover {
   background-color: $red-bg-btn--active;
 }
+
+.button-continue-rent {
+  background-color: $blue-bg-btn;
+}
+
+.button-continue-rent:hover {
+  background-color: $blue-bg-btn--active;
+}
+
+.start-rent-time {
+  font-size: 16px;
+  font-weight: 500;
+
+  @include for-size(tablet) {
+    font-size: 18px;
+    margin-right: 35px;
+  }
+}
+
+.start-rent-capture {
+  font-size: 18px;
+  margin-right: 12px;
+}
+
+//Modal
