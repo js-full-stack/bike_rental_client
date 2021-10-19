@@ -17,31 +17,27 @@ export default function RentalListItemBikes({
 }) {
   const [showModal, setShowModal] = useState(false);
   const [currentTime, setCurrentTime] = useState(null);
+  const totalPriceRef = useRef(null);
   const toggleModal = () => {
     setShowModal((prev) => !prev);
   };
 
-  const totalPrice = getTotalPrice();
-
   useEffect(() => {
     setCurrentTime(new Date());
-  }, [showModal]);
+  }, [showModal, totalPriceRef]);
 
-  function getTotalPrice() {
-    const formattedRentalTime = moment(updatedAt);
-    const formattedCurrentTime = moment(currentTime);
+  const formattedRentalTime = moment(updatedAt);
+  const formattedCurrentTime = moment(currentTime);
 
-    const deltaTime = formattedCurrentTime.diff(formattedRentalTime);
+  const deltaTime = formattedCurrentTime.diff(formattedRentalTime);
 
-    const hours = Math.floor(
-      (deltaTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-    );
-    const mins = Math.floor((deltaTime % (1000 * 60 * 60)) / (1000 * 60));
+  const hours = Math.floor(
+    (deltaTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+  );
+  const mins = Math.floor((deltaTime % (1000 * 60 * 60)) / (1000 * 60));
 
-    const totalTimeRent = hours * 60 + mins;
-    const totalPrice = ((price / 60) * totalTimeRent).toFixed(2);
-    return totalPrice;
-  }
+  const totalTimeRent = hours * 60 + mins;
+  const totalPrice = ((price / 60) * totalTimeRent).toFixed(2);
 
   return (
     <li className="rental-list-item">
