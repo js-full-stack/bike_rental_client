@@ -8,6 +8,7 @@ export default function AvailableListItemBikes({
   type,
   price,
   onRemove,
+  onUpdate,
 }) {
   return (
     <li className="available-list-item">
@@ -16,7 +17,12 @@ export default function AvailableListItemBikes({
       </p>
 
       <div className="available-buttons-wrapper">
-        <Button className={classNames("button button-rent")}>Rent</Button>
+        <Button
+          onClick={() => onUpdate(id)}
+          className={classNames("button button-rent")}
+        >
+          Rent
+        </Button>
         <Button
           onClick={() => onRemove(id)}
           className={classNames("button button-delete")}

@@ -3,11 +3,9 @@
 .banner {
   height: 500px;
 
-  background-image: url("../../img/banner-4.jpg");
-  background-color: $white;
+  background-image: url("../../img/banner.jpg");
+  background-position: top 50% left 30%;
   background-repeat: no-repeat;
-  background-position: center;
-  object-fit: inherit;
   background-size: contain;
-  width: inherit;
+  background-color: $white;
 }

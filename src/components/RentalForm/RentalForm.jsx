@@ -1,17 +1,18 @@
 import classNames from "classnames";
 import { useState } from "react";
-import { useMedia } from "react-use";
+// import * as yup from "yup";
 
+//* Styles
 import "./RentalForm.scss";
 import "../Button/Button.scss";
+
+//* Components
 import Button from "../Button";
-import Logo from "../../img/logo.png";
+
 export default function RentalForm({ onSubmit }) {
   const [bikeName, setbikeName] = useState("");
   const [bikeType, setBikeType] = useState("Road");
   const [rentPrice, setRentPrice] = useState(0);
-
-  const tabletMode = useMedia("(min-width: 768px)");
 
   const handleInputName = (e) => setbikeName(e.target.value);
   const handleSelectType = (e) => setBikeType(e.target.value);
@@ -28,7 +29,7 @@ export default function RentalForm({ onSubmit }) {
     await onSubmit(bike);
 
     setbikeName("");
-    setRentPrice(0);
+    setRentPrice(1);
   };
 
   return (
@@ -69,8 +70,7 @@ export default function RentalForm({ onSubmit }) {
               className="input-price"
               id="bike-price-id"
               type="number"
-              step="10"
-              min="0"
+              min="1"
               value={rentPrice}
               onChange={handleInputPrice}
             />

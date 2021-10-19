@@ -3,7 +3,12 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 //*API
-import { getBikes, addBike, deleteBike } from "./api/apiBikes";
+import {
+  getBikes,
+  addBike,
+  deleteBike,
+  updateBikeStatus,
+} from "./api/apiBikes";
 
 //* Components
 import Container from "./components/Container";
@@ -20,8 +25,7 @@ function App() {
   }, []);
 
   const handleSubmit = async (bike) => {
-    await addBike(bike);
-    await getBikes().then(({ payload }) => setBikeList(payload));
+    await addBike(bike).then(({ payload }) => setBikeList(payload));
   };
 
   const handleRemoveBike = async (bikeId) => {
@@ -30,15 +34,23 @@ function App() {
     });
   };
 
+  const handleUpdateBike = async (bikeId) => {
+    await updateBikeStatus(bikeId).then(({ payload }) => setBikeList(payload));
+  };
+
   return (
     <div className="app-wrapper">
       <Container>
         <Header />
         <RentalForm onSubmit={handleSubmit} />
         <Banner />
-        <RentalListBikes bikes={bikeList} />
+        <RentalListBikes bikes={bikeList} onUpdate={handleUpdateBike} />
 
-        <AvailableListBikes bikes={bikeList} onRemove={handleRemoveBike} />
+        <AvailableListBikes
+          bikes={bikeList}
+          onRemove={handleRemoveBike}
+          onUpdate={handleUpdateBike}
+        />
       </Container>
       <ToastContainer />
     </div>

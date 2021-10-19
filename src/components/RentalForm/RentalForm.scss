@@ -27,6 +27,7 @@
 
 .form-rental label {
   font-size: 18px;
+  color: $gray-label-color;
 }
 
 .form-rental input,
@@ -39,6 +40,11 @@
   }
 }
 
+.form-rental input:active,
+.form-rental select:active {
+  border-color: green;
+}
+
 .form-rental-title {
   text-align: center;
   text-transform: uppercase;
@@ -46,7 +52,7 @@
   padding: 25px 0;
   margin-bottom: 12px;
 
-  color: $gray-title-color;
+  color: $gray-subtitle-color;
 }
 
 .form-label-name,
@@ -66,10 +72,11 @@
 
 .form-label-price {
   @include for-size(tablet) {
-    margin-right: 50px;
+    // margin-right: 50px;
+    margin-right: auto;
   }
   @include for-size(desktop) {
-    margin-right: 80px;
+    margin-right: 120px;
   }
 }
 
@@ -90,12 +97,11 @@
   width: 250px;
   padding-left: 5px;
   border-radius: 6px;
-  // border: none;
-  // border-bottom: 2px solid black;
+
   background-color: $white;
 
   @include for-size(tablet) {
-    width: 150px;
+    width: 180px;
   }
 
   @include for-size(desktop) {

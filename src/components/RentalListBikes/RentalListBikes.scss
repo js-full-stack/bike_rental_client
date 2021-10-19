@@ -10,13 +10,67 @@
   margin: 24px 0;
 
   text-transform: uppercase;
-  color: $gray-title-color;
+  color: $gray-subtitle-color;
 }
 
 .rental-list {
-  //
+  width: 480px;
+  margin: 0 auto;
+
+  @include for-size(tablet) {
+    width: 720px;
+  }
+  @include for-size(desktop) {
+    width: 800px;
+  }
 }
 
 .rental-list-item {
-  //
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $available-list-item-color;
+  border-radius: 6px;
+  padding: 12px 0;
+}
+
+.rental-list-item:not(:last-child) {
+  margin-bottom: 25px;
+}
+
+.rental-list-item:last-child {
+  margin-bottom: 40px;
+}
+
+.rental-bike-data {
+  font-size: 16px;
+  font-weight: 500;
+  width: 180px;
+  word-wrap: wrap;
+  word-wrap: break-word;
+
+  @include for-size(tablet) {
+    font-size: 20px;
+    width: 10px;
+  }
+
+  @include for-size(tablet) {
+    width: 380px;
+  }
+}
+
+.button-cancel-rent {
+  background-color: $red-bg-btn;
+  transition: background-color $transition;
+
+  @include for-size(tablet) {
+    margin-left: 20px;
+  }
+  @include for-size(desktop) {
+    margin-left: 160px;
+  }
+}
+
+.button-cancel-rent:hover {
+  background-color: $red-bg-btn--active;
 }

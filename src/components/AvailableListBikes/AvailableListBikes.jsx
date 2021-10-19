@@ -1,8 +1,8 @@
 import "./AvailableListBikes.scss";
 import AvailableListItemBikes from "./AvailableListItemBikes";
 
-export default function AvailableListBikes({ bikes, onRemove }) {
-  const filteredAvailableBikes = bikes.filter(({ isRented }) => !isRented);
+export default function AvailableListBikes({ bikes, onRemove, onUpdate }) {
+  const filteredAvailableBikes = bikes?.filter(({ isRented }) => !isRented);
   const availableBikesCount = filteredAvailableBikes.length;
   return (
     <section>
@@ -19,6 +19,7 @@ export default function AvailableListBikes({ bikes, onRemove }) {
               type={bikeType}
               price={rentPrice}
               onRemove={onRemove}
+              onUpdate={onUpdate}
             />
           )
         )}
