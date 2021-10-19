@@ -64,10 +64,10 @@
   transition: background-color $transition;
 
   @include for-size(tablet) {
-    margin-left: 20px;
+    margin-left: 75px;
   }
   @include for-size(desktop) {
-    margin-left: 160px;
+    margin-left: 105px;
   }
 }
 

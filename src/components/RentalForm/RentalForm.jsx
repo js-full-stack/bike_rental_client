@@ -12,7 +12,7 @@ import Button from "../Button";
 export default function RentalForm({ onSubmit }) {
   const [bikeName, setbikeName] = useState("");
   const [bikeType, setBikeType] = useState("Road");
-  const [rentPrice, setRentPrice] = useState(0);
+  const [rentPrice, setRentPrice] = useState(1);
 
   const handleInputName = (e) => setbikeName(e.target.value);
   const handleSelectType = (e) => setBikeType(e.target.value);
