@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 
 import moment from "moment";
 import Moment from "react-moment";
@@ -16,14 +16,21 @@ export default function RentalListItemBikes({
 }) {
   const [showModal, setShowModal] = useState(false);
   const [currentTime, setCurrentTime] = useState(null);
-  const totalPriceRef = useRef(null);
+  const [countRentPrice, setCountRentPrice] = useState("");
+
+  const onStopRent = () => {
+    setCountRentPrice(totalPrice);
+    onUpdate(id);
+  };
+
   const toggleModal = () => {
     setShowModal((prev) => !prev);
   };
+  const totalPrice = getTotalPrice();
 
   useEffect(() => {
     setCurrentTime(new Date());
-  }, [showModal, totalPriceRef]);
+  }, [showModal]);
 
   function getTotalPrice() {
     const formattedRentalTime = moment(updatedAt);
@@ -41,8 +48,6 @@ export default function RentalListItemBikes({
     return totalPrice;
   }
 
-  const totalPrice = getTotalPrice();
-
   return (
     <li className="rental-list-item">
       <p className="rental-bike-data">
@@ -57,9 +62,7 @@ export default function RentalListItemBikes({
 
       <Button
         className={classNames("button button-count-rent")}
-        onClick={() => {
-          toggleModal();
-        }}
+        onClick={toggleModal}
       >
         Count price
       </Button>

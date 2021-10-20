@@ -1,10 +1,6 @@
 import axios from "axios";
-import { toast } from "react-toastify";
 
 axios.defaults.baseURL = "https://bicycles-rent.herokuapp.com/";
-// axios.defaults.baseURL = "http://localhost:8085/";
-
-// const errorHandler = (errorMessage) => toast.error(errorMessage);
 
 export const getBikes = async () => {
   try {
@@ -16,16 +12,28 @@ export const getBikes = async () => {
 };
 
 export const addBike = async (bike) => {
-  const { data } = await axios.post("/bikes", bike);
-  return data;
+  try {
+    const { data } = await axios.post("/bikes", bike);
+    return data;
+  } catch (error) {
+    console.error(error);
+  }
 };
 
 export const deleteBike = async (bikeId) => {
-  const { data } = await axios.delete(`/bikes/${bikeId}`);
-  return data;
+  try {
+    const { data } = await axios.delete(`/bikes/${bikeId}`);
+    return data;
+  } catch (error) {
+    console.error(error);
+  }
 };
 
 export const updateBikeStatus = async (bikeId, updatedStatus) => {
-  const { data } = await axios.patch(`bikes/${bikeId}`, updatedStatus);
-  return data;
+  try {
+    const { data } = await axios.patch(`bikes/${bikeId}`, updatedStatus);
+    return data;
+  } catch (error) {
+    console.error(error);
+  }
 };

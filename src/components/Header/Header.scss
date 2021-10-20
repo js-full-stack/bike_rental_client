@@ -22,8 +22,4 @@
   left: 10px;
   height: 42px;
   width: 42px;
-
-  @include for-size(desktop) {
-    left: 60px;
-  }
 }

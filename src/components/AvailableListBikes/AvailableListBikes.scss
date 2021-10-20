@@ -28,7 +28,7 @@
 
   padding: 12px 0;
   border-radius: 6px;
-  background-color: $available-list-item-color;
+  background-color: $primary-item-bg-color;
 
   @include for-size(tablet) {
     justify-content: space-evenly;
@@ -102,7 +102,7 @@
 
 .count-price-block {
   margin-top: 0;
-  margin-bottom: 50px;
+  margin-bottom: 40px;
 }
 
 .passed-time-capture,

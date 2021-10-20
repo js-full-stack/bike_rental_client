@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import { useState } from "react";
-// import * as yup from "yup";
+import { toast } from "react-toastify";
 
 //* Styles
 import "./RentalForm.scss";
@@ -12,7 +12,7 @@ import Button from "../Button";
 export default function RentalForm({ onSubmit }) {
   const [bikeName, setbikeName] = useState("");
   const [bikeType, setBikeType] = useState("Road");
-  const [rentPrice, setRentPrice] = useState(1);
+  const [rentPrice, setRentPrice] = useState(0);
 
   const handleInputName = (e) => setbikeName(e.target.value);
   const handleSelectType = (e) => setBikeType(e.target.value);
@@ -26,6 +26,9 @@ export default function RentalForm({ onSubmit }) {
       bikeType,
       rentPrice,
     };
+
+    if (!bikeName) return toast.warning("Input bike name");
+    if (!rentPrice) return toast.warning("Input bike price");
     await onSubmit(bike);
 
     setbikeName("");
