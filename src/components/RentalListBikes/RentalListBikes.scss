@@ -31,7 +31,7 @@
   justify-content: center;
   background-color: $primary-item-bg-color;
   border-radius: 6px;
-  padding: 12px 0;
+  padding: 12px;
 }
 
 .rental-list-item:not(:last-child) {
@@ -46,11 +46,14 @@
   font-size: 16px;
   font-weight: 500;
   width: 180px;
+  margin-left: 10px;
+
   word-wrap: break-word;
 
   @include for-size(tablet) {
-    font-size: 20px;
-    width: 10px;
+    font-size: 18px;
+    width: 280px;
+    margin-left: 30px;
   }
 
   @include for-size(tablet) {
@@ -61,10 +64,9 @@
 .button-count-rent {
   background-color: $red-bg-btn;
   transition: background-color $transition;
-  margin-left: 30px;
-
+  margin-left: 8px;
   @include for-size(tablet) {
-    // margin-left: 75px;
+    margin-left: 30px;
   }
   @include for-size(desktop) {
     // margin-left: 105px;
@@ -99,7 +101,7 @@
 
   @include for-size(tablet) {
     font-size: 18px;
-    margin-right: 35px;
+    // margin-right: 35px;
   }
 }
 

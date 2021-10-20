@@ -43,15 +43,17 @@ function App() {
     <div className="app-wrapper">
       <Container>
         <Header />
-        <RentalForm onSubmit={handleSubmit} />
-        <Banner />
-        <RentalListBikes bikes={bikeList} onUpdate={handleUpdateBike} />
+        <main>
+          <RentalForm onSubmit={handleSubmit} />
+          <Banner />
+          <RentalListBikes bikes={bikeList} onUpdate={handleUpdateBike} />
 
-        <AvailableListBikes
-          bikes={bikeList}
-          onRemove={handleRemoveBike}
-          onUpdate={handleUpdateBike}
-        />
+          <AvailableListBikes
+            bikes={bikeList}
+            onRemove={handleRemoveBike}
+            onUpdate={handleUpdateBike}
+          />
+        </main>
       </Container>
       <ToastContainer />
     </div>

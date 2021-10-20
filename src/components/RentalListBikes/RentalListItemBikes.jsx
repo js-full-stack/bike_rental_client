@@ -1,7 +1,6 @@
 import classNames from "classnames";
 import { useState, useEffect } from "react";
-
-import moment from "moment";
+import getTotalPrice from "../../utils/calculatePrice";
 import Moment from "react-moment";
 import Modal from "../Modal";
 import Button from "../Button/";
@@ -16,37 +15,15 @@ export default function RentalListItemBikes({
 }) {
   const [showModal, setShowModal] = useState(false);
   const [currentTime, setCurrentTime] = useState(null);
-  const [countRentPrice, setCountRentPrice] = useState("");
-
-  const onStopRent = () => {
-    setCountRentPrice(totalPrice);
-    onUpdate(id);
-  };
-
   const toggleModal = () => {
     setShowModal((prev) => !prev);
   };
-  const totalPrice = getTotalPrice();
+
+  const totalPrice = getTotalPrice(updatedAt, currentTime, price);
 
   useEffect(() => {
     setCurrentTime(new Date());
   }, [showModal]);
-
-  function getTotalPrice() {
-    const formattedRentalTime = moment(updatedAt);
-    const formattedCurrentTime = moment(currentTime);
-
-    const deltaTime = formattedCurrentTime.diff(formattedRentalTime);
-
-    const hours = Math.floor(
-      (deltaTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-    );
-    const mins = Math.floor((deltaTime % (1000 * 60 * 60)) / (1000 * 60));
-
-    const totalTimeRent = hours * 60 + mins;
-    const totalPrice = ((price / 60) * totalTimeRent).toFixed(2);
-    return totalPrice;
-  }
 
   return (
     <li className="rental-list-item">
@@ -56,7 +33,7 @@ export default function RentalListItemBikes({
       <>
         <span className="start-rent-capture">Start rent: </span>
         <span className="start-rent-time">
-          <Moment format="HH:mm">{updatedAt}</Moment>
+          <Moment format="dddd, MMMM YYYY, HH:mm:ss">{updatedAt}</Moment>
         </span>
       </>
 
@@ -71,7 +48,7 @@ export default function RentalListItemBikes({
           <div className="time-rent-block">
             <span className="passed-time-capture">Time passed:</span>
             <span className="passed-time-display">
-              <Moment format="HH:mm:ss" durationFromNow interval="1000">
+              <Moment format="DD:HH:mm:ss" durationFromNow interval="1000">
                 {updatedAt}
               </Moment>
             </span>
