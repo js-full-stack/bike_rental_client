@@ -19,7 +19,6 @@ import RentalListBikes from "./components/RentalListBikes";
 import AvailableListBikes from "./components/AvailableListBikes";
 function App() {
   const [bikeList, setBikeList] = useState([]);
-  const [showModal, setShowModal] = useState([]);
 
   useEffect(() => {
     getBikes().then(({ payload }) => setBikeList(payload));

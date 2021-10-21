@@ -18,7 +18,6 @@ export default function RentalListItemBikes({
   const toggleModal = () => {
     setShowModal((prev) => !prev);
   };
-
   const totalPrice = getTotalPrice(updatedAt, currentTime, price);
 
   useEffect(() => {
@@ -33,7 +32,7 @@ export default function RentalListItemBikes({
       <>
         <span className="start-rent-capture">Start rent: </span>
         <span className="start-rent-time">
-          <Moment format="dddd, MMMM YYYY, HH:mm:ss">{updatedAt}</Moment>
+          <Moment format="DD, MMMM YYYY, HH:mm:ss">{updatedAt}</Moment>
         </span>
       </>
 

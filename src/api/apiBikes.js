@@ -29,9 +29,9 @@ export const deleteBike = async (bikeId) => {
   }
 };
 
-export const updateBikeStatus = async (bikeId, updatedStatus) => {
+export const updateBikeStatus = async (bikeId) => {
   try {
-    const { data } = await axios.patch(`bikes/${bikeId}`, updatedStatus);
+    const { data } = await axios.patch(`bikes/${bikeId}`);
     return data;
   } catch (error) {
     console.error(error);
